@@ -1,0 +1,164 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.messagegears</groupId>
+    <artifactId>test</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>MessageGears</name>
+    <url>http://www.messagegears.com</url>
+    <description>
+        MessageGears is a cloud-based email delivery and tracking service for business-critical applications.
+    </description>
+
+    <organization>
+        <name>MessageGears, LLC</name>
+        <url>http://messagegears.com</url>
+    </organization>
+
+    <inceptionYear>June, 2010</inceptionYear>
+
+    <issueManagement>
+        <system>JIRA Studio</system>
+        <url>https://emailabove.jira.com/browse/MG</url>
+    </issueManagement>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <scm>
+        <connection>scm:svn:https://emailabove.jira.com/svn/MG/trunk</connection>
+        <developerConnection>scm:svn:https://emailabove.jira.com/svn/MG/trunk</developerConnection>
+        <url>https://emailabove.jira.com/svn/MG/trunk</url>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>artifactory_repository</id>
+            <name>Artifactory Releases Repository</name>
+            <url>https://emailabove.artifactoryonline.com/emailabove/libs-releases-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>artifactory_repository</id>
+            <name>Artifactory Snapshots Repository</name>
+            <url>https://emailabove.artifactoryonline.com/emailabove/libs-snapshots-local</url>
+        </snapshotRepository>
+        <site>
+            <id>site_deploy</id>
+            <!-- <url>scpexe://dev.messagegears.net/var/www/</url> -->
+            <url>file:///opt/messagegears/development/site</url>
+        </site>
+    </distributionManagement>
+
+    <build>
+        <extensions>
+            <!-- Enabling the use of SSH/SCP -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-beta-7</version>
+            </extension>
+        </extensions>
+    
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <dependencyManagement>
+        <!--
+            dependencies and their versions specified here so that other projects do not have to specify the resource 
+            versions allowing them to all be managed here.
+        -->
+        <dependencies>
+        
+            <!--  Freemaker -->
+            <dependency>
+                <groupId>org.freemarker</groupId>
+                <artifactId>freemarker</artifactId>
+                <version>2.3.13</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib-nodep</artifactId>
+                <version>2.2</version>
+            </dependency>
+
+            <!--  Database Connectivity  -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql-driver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>c3p0</groupId>
+                <artifactId>c3p0</artifactId>
+                <version>0.9.1.2</version>
+            </dependency>
+
+            <!--  JavaMail -->
+            <dependency>
+                <groupId>com.sun.mail</groupId>
+                <artifactId>javax.mail</artifactId>
+                <version>1.4.4</version>
+            </dependency>
+
+            <!--  Hibernate Validator -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>4.1.0.Final</version>
+            </dependency>
+
+            <!--  logging with SLF4J and logback -->
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.6.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>jcl-over-slf4j</artifactId>
+                <version>1.6.4</version>
+            </dependency>
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <!-- Test Dependencies -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.9</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.easymock</groupId>
+                <artifactId>easymockclassextension</artifactId>
+                <version>3.1</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jvnet.mock-javamail</groupId>
+                <artifactId>mock-javamail</artifactId>
+                <version>1.9</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
