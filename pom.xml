@@ -29,9 +29,9 @@
     </properties>
 
     <scm>
-        <connection>scm:svn:https://emailabove.jira.com/svn/MG/trunk</connection>
-        <developerConnection>scm:svn:https://emailabove.jira.com/svn/MG/trunk</developerConnection>
-        <url>https://emailabove.jira.com/svn/MG/trunk</url>
+        <url>http://github.com/michaelrobinson/test.git</url>
+        <connection>scm:git:git://github.com/michaelrobinson/test.git</connection>
+        <developerConnection>scm:git:git://github.com/michaelrobinson/test.git</developerConnection>
     </scm>
 
     <distributionManagement>
@@ -53,15 +53,6 @@
     </distributionManagement>
 
     <build>
-        <extensions>
-            <!-- Enabling the use of SSH/SCP -->
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ssh-external</artifactId>
-                <version>1.0-beta-7</version>
-            </extension>
-        </extensions>
-    
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
@@ -77,87 +68,14 @@
         -->
         <dependencies>
         
-            <!--  Freemaker -->
-            <dependency>
-                <groupId>org.freemarker</groupId>
-                <artifactId>freemarker</artifactId>
-                <version>2.3.13</version>
-            </dependency>
-
-            <dependency>
-                <groupId>cglib</groupId>
-                <artifactId>cglib-nodep</artifactId>
-                <version>2.2</version>
-            </dependency>
-
-            <!--  Database Connectivity  -->
-            <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql-driver.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>c3p0</groupId>
-                <artifactId>c3p0</artifactId>
-                <version>0.9.1.2</version>
-            </dependency>
-
-            <!--  JavaMail -->
-            <dependency>
-                <groupId>com.sun.mail</groupId>
-                <artifactId>javax.mail</artifactId>
-                <version>1.4.4</version>
-            </dependency>
-
-            <!--  Hibernate Validator -->
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>4.1.0.Final</version>
-            </dependency>
-
-            <!--  logging with SLF4J and logback -->
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>1.6.4</version>
-            </dependency>
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>jcl-over-slf4j</artifactId>
-                <version>1.6.4</version>
-            </dependency>
-            <dependency>
-                <groupId>ch.qos.logback</groupId>
-                <artifactId>logback-classic</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
             <!-- Test Dependencies -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-test</artifactId>
-                <version>${spring.version}</version>
-                <scope>test</scope>
-            </dependency>
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.9</version>
                 <scope>test</scope>
             </dependency>
-            <dependency>
-                <groupId>org.easymock</groupId>
-                <artifactId>easymockclassextension</artifactId>
-                <version>3.1</version>
-                <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>org.jvnet.mock-javamail</groupId>
-                <artifactId>mock-javamail</artifactId>
-                <version>1.9</version>
-                <scope>test</scope>
-            </dependency>
+        
         </dependencies>
     </dependencyManagement>
 
