@@ -3,7 +3,7 @@
 
     <groupId>com.messagegears</groupId>
     <artifactId>test</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>MessageGears</name>
@@ -11,18 +11,6 @@
     <description>
         MessageGears is a cloud-based email delivery and tracking service for business-critical applications.
     </description>
-
-    <organization>
-        <name>MessageGears, LLC</name>
-        <url>http://messagegears.com</url>
-    </organization>
-
-    <inceptionYear>June, 2010</inceptionYear>
-
-    <issueManagement>
-        <system>JIRA Studio</system>
-        <url>https://emailabove.jira.com/browse/MG</url>
-    </issueManagement>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -60,23 +48,5 @@
             </resource>
         </resources>
     </build>
-
-    <dependencyManagement>
-        <!--
-            dependencies and their versions specified here so that other projects do not have to specify the resource 
-            versions allowing them to all be managed here.
-        -->
-        <dependencies>
-        
-            <!-- Test Dependencies -->
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.9</version>
-                <scope>test</scope>
-            </dependency>
-        
-        </dependencies>
-    </dependencyManagement>
 
 </project>
